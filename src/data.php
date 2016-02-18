@@ -30,7 +30,6 @@
         7 => 'seventy',
         8 => 'eighty',
         9 => 'ninety'
-
     ];
 
  ?>

@@ -34,7 +34,7 @@
 		{
 		//Arrange
 		$test_NumbersToWords = new NumbersToWords(5);
-		// $input = 'beowulf';
+
 
 		//Act
 		$result = $test_NumbersToWords->getOnes();
@@ -47,7 +47,6 @@
 		{
 		//Arrange
 		$test_NumbersToWords = new NumbersToWords(19);
-		// $input = 'beowulf';
 
 		//Act
 		$result = $test_NumbersToWords->getTens();
@@ -55,6 +54,31 @@
 		//Assert
 		$this->assertEquals('nineteen', $result);
 		}
+
+		function test_getTens_multiples_of_ten()
+		{
+		//Arrange
+		$test_NumbersToWords = new NumbersToWords(30);
+
+		//Act
+		$result = $test_NumbersToWords->getTens();
+
+		//Assert
+		$this->assertEquals('thirty', $result);
+		}
+
+		function test_getTens_multiples_of_ten()
+		{
+		//Arrange
+		$test_NumbersToWords = new NumbersToWords(30);
+
+		//Act
+		$result = $test_NumbersToWords->getTens();
+
+		//Assert
+		$this->assertEquals('thirty', $result);
+		}
+
 	}
 
 ?>

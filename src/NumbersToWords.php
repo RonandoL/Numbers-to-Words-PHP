@@ -21,11 +21,6 @@
 		}
 
 
-		// function makeNumberWord()
-		// {
-		// 	// return something
-		// }
-
 		function numSplit()
 		{
 			return str_split($this->number);
@@ -53,6 +48,8 @@
 			$numSplitRev = $this->numSplitRev();
 			if($numSplitRev[1] == 1){
 				$res = $GLOBALS['tens'][$this->number];
+			} else {
+				$res = $GLOBALS['tens'][$numSplitRev[1]];
 			}
 			return $res;
 		}
