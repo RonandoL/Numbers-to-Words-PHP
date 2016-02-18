@@ -10,11 +10,32 @@
 			$this->number = $number_input;
 		}
 
+		function getNumber()
+		{
+			return $this->number;
+		}
+
+		function setNumber($number)
+		{
+			$this->number = number;
+		}
+
 
 		// function makeNumberWord()
 		// {
 		// 	// return something
 		// }
+
+		function numSplit()
+		{
+			return str_split($this->number);
+		}
+
+		function numSplitRev()
+		{
+			$numSplit = $this->numSplit();
+			return array_reverse($numSplit);
+		}
 
 		function getOnes()
 		{
@@ -26,24 +47,17 @@
 			} return $res;
 		}
 
-		function splitNum()
+		function getTens()
 		{
-			return str_split($this->number);
-		}
-		// function getTens()
-		// {
-		//
-		// }
-
-		function getNumber()
-		{
-			return $this->number;
+			$res = "";
+			$numSplitRev = $this->numSplitRev();
+			if($numSplitRev[1] == 1){
+				$res = $GLOBALS['tens'][$this->number];
+			}
+			return $res;
 		}
 
-		function setNumber($number)
-		{
-			$this->number = number;
-		}
+
 
 	}
  ?>
