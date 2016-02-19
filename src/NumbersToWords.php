@@ -32,11 +32,14 @@
 			return array_reverse($numSplit);
 		}
 
-		function getOnes()
+		function getOnes($i)
 		{
 			$res = '';
+			$numSplitRev = $this->numSplitRev();
 			foreach($GLOBALS['ones'] as $key => $one){
-				if ($this->number == $key){
+				if ($numSplitRev[$i] == 0){
+					return false;
+				} elseif ($numSplitRev[$i] == $key){
 					$res = $one;
 				}
 			} return $res;
@@ -49,12 +52,24 @@
 			if($numSplitRev[1] == 1){
 				$res = $GLOBALS['tens'][$this->number];
 			} else {
-				$res = $GLOBALS['tens'][$numSplitRev[1]];
+				$res .= $GLOBALS['tens'][$numSplitRev[1]] . " ";
+				$res .= $this->getOnes(0);
 			}
 			return $res;
 		}
 
-
+		function getHundreds()
+		{
+			$res = '';
+			if($this->number % 100 == 0){
+				return $this->getOnes(2) . " hundred";
+			} else {
+			$hundreds = $this->getOnes(2);
+			$tens = $this->getTens();
+			$res .= $hundreds . " hundred and " . $tens;
+			}
+			return $res;
+		}
 
 	}
  ?>

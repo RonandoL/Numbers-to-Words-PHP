@@ -37,7 +37,7 @@
 
 
 		//Act
-		$result = $test_NumbersToWords->getOnes();
+		$result = $test_NumbersToWords->getOnes(0);
 
 		//Assert
 		$this->assertEquals('five', $result);
@@ -64,21 +64,44 @@
 		$result = $test_NumbersToWords->getTens();
 
 		//Assert
-		$this->assertEquals('thirty', $result);
+		$this->assertEquals('thirty ', $result);
 		}
 
-		function test_getTens_multiples_of_ten()
+		function test_getTens_non_multiples_of_ten_over_19()
 		{
 		//Arrange
-		$test_NumbersToWords = new NumbersToWords(30);
+		$test_NumbersToWords = new NumbersToWords(99);
 
 		//Act
 		$result = $test_NumbersToWords->getTens();
 
 		//Assert
-		$this->assertEquals('thirty', $result);
+		$this->assertEquals('ninety nine', $result);
 		}
 
+		function test_getHundreds_not_divisible_by_100_and_over_100_less_than_1000()
+		{
+			//Arrange
+			$test_NumbersToWords = new NumbersToWords(123);
+
+			//Act
+			$result = $test_NumbersToWords->getHundreds();
+
+			//Assert
+			$this->assertEquals('one hundred and twenty three', $result);
+		}
+
+		function test_getHundreds_divisible_by_100_less_than_1000()
+		{
+			//Arrange
+			$test_NumbersToWords = new NumbersToWords(100);
+
+			//Act
+			$result = $test_NumbersToWords->getHundreds();
+
+			//Assert
+			$this->assertEquals('one hundred', $result);
+		}
 	}
 
 ?>
