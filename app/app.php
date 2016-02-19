@@ -7,12 +7,12 @@
 
 	$app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
 
-	$app->get('/', function() use ($app)]
+	$app->get('/', function() use ($app)
 	{
 		return $app['twig']->render('numberToWord.html.twig');
 	});
 
-	$app->get('/results', function() use ($app)]
+	$app->get('/results', function() use ($app)
 	{
 		$num = new NumbersToWords($_GET['number']);
 		$res = $num->convertNumber();

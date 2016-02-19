@@ -73,9 +73,10 @@
 
 		function convertNumber()
 		{
-			if ($this->number < 10)
-			{
-				return $this->getOnes();
+			if ($this->number == 0){
+				return "Zero";
+			}elseif ($this->number < 10)
+			{ return $this->getOnes(0);
 			} elseif ($this->number < 100){
 				return $this->getTens();
 			} elseif ($this->number < 1000){
