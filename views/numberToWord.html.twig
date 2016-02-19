@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Number to Word</title>
+    </head>
+    <body>
+        <h1>enter a number</h1>
+        <form  action="/results">
+            <label for="number">Number</label>
+            <input type="number" name="number">
+            <button type="submit">Convert</button>
+        </form>
+        {% if res is not empty %}
+            <h2>Results</h2>
+            <p>{{ res }}</p>
+        {% endif %}
+    </body>
+</html>

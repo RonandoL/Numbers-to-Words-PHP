@@ -71,5 +71,19 @@
 			return $res;
 		}
 
+		function convertNumber()
+		{
+			if ($this->number < 10)
+			{
+				return $this->getOnes();
+			} elseif ($this->number < 100){
+				return $this->getTens();
+			} elseif ($this->number < 1000){
+				return $this->getHundreds();
+			} else {
+				return "Support for numbers greater than 999 does not exist yet.";
+			}
+		}
+
 	}
  ?>
